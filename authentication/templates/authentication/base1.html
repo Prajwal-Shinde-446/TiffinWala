@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<style>
+    body{
+        margin: 0px;
+        padding: 0px;
+        background: url('{% static 'assets/images/pexels-keegan-evans-90893.jpg' %}');
+        background-size: cover;
+        background-repeat: no-repeat;
+        height:788px;
+    }
+    .mid{
+        display : flex;
+        margin : 10px auto;
+        width: 39vw;
+        height:40%;
+        padding:2px;
+        justify-content:center;
+        flex-flow:row wrap;
+    }
+
+    .navbar{
+
+        display: inline-block;
+        height:20%;
+        {% comment %} width:100%; {% endcomment %}
+    }
+
+    .navbar li{
+        
+        display:inline-block;
+        border:2px;
+        height:20%;
+        font-size: 17px;
+        
+    }
+    .navbar li a {
+        color: black;
+        text-decoration: none;
+        padding: 10px 12px;
+        height:2px;
+        width:2px
+        
+      }
+
+    ul {
+        display:inline-block
+        margin:2px auto;
+        padding:2px
+        height:80%;
+        width:80%;
+
+    }
+
+      .navbar li a:hover ,  .navbar li a:active {
+        border: 0px solid rgb(72, 238, 72);
+        border-radius:8px ;
+        color: white;
+        box-shadow: 0 0 10px 3px rgba(60, 251, 79, 0.7);
+        text-align: center;
+        font-size: 19px;
+        height:20%;
+        width:20%;
+        {% comment %} line-height: 100px; {% endcomment %}
+      }
+
+      .navbar li a:active{
+        
+        color: white;
+        box-shadow: 0 0 10px 3px rgba(60, 251, 79, 0.7);
+        text-align: center;
+        font-size: 17px; 
+        background-color:rgb(55, 186, 107);
+
+
+      }
+
+      .Tagline{
+        display:block;
+        margin:17px -52px 500px;
+        width:70%;
+        height:50%;
+
+      }
+
+      .Tagline h1{
+
+        font-style: italic;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        left:50px;
+        padding-left:200px;
+        font-size:4vw;
+        font-weight:bold;
+        letter-spacing: 1px;
+        line-height: 1.5;
+        text-shadow: 1px 2px 2px rgb(255, 233, 233);
+        cursor: default;
+        
+      }
+
+      .Tagline p{
+        font-style: italic;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        left:50px;
+        padding-left:200px;
+        font-size:2vw;
+        font-weight:bold;
+        line-height: 1.5;
+        text-shadow: 1px 2px 2px rgb(255, 233, 233);
+        cursor: default;
+      }
+
+      .containfooter{
+        display:flex;
+        {% comment %} border: 2px solid black; {% endcomment %}
+        felx-flow:row wrap;
+        justify-content:space-evenly;
+        height:40%;
+      }
+
+      .block{
+        padding-top:40px;
+        padding-bottom:40px;
+
+      }
+
+      .block li{
+        padding-top:8px;
+        display:inline-block;
+        width:100%;
+        font-size: 17px;
+
+      }
+
+      .block ul{
+        display:inline-block
+        margin:2px;
+        padding:2px
+        align-items:left;
+
+        
+
+      }
+      .block h3{
+        cursor:default;
+      }
+
+    footer ul {
+        list-style: none;
+        padding: 0;
+    }
+    
+    footer li {
+        margin-bottom: 10px;
+
+    }
+    footer{
+        background-color:rgb(230, 229, 229);
+        margin-top:190px;
+    }
+
+    .block li a{
+        color: black;
+        text-decoration: none;
+        width:100%;
+    }
+    #item2{
+        flex-basis: 160px;
+    }
+
+    footer p{
+
+        padding-left:20px;
+        padding-right:20px;
+    }
+
+    .registerform{
+        border-radius:8px;
+        margin : 10px 10px 10px 20px;
+        padding-left:7px;
+        height:53px;
+        width: 370px;
+        border: 2px solid grey; /* Set the border thickness to 2px */
+        box-shadow: none
+    }
+
+    .registeration{
+        margin:10px;
+        padding:11px;
+
+    }
+    .registerform:hover {
+        border-color: skyblue;
+      }
+
+    .registerform:focus {
+        border-color: skyblue;
+    }
+
+    .modal-body{
+
+        width:20%;
+        border-radius:7px;
+    }
+
+    .modal-content{
+        border-radius:8px;
+        width:150%;
+        height:60%;
+       
+    }
+
+    .modal-dialog modal-dialog-centered{
+        border-radius:7px;
+    }
+
+    .modal-header {
+        border-bottom: none; 
+        margin-bottom:-20px;
+      }
+
+    .modal-title{
+
+        font-size: 33px;
+       
+    }
+    .terms{
+
+        color:skyblue;
+    }
+
+
+    .conditions{
+        display:inline-block;
+        width:437px;
+    }
+    
+    .modal-footer{
+        justify-content:center;
+        width:457px;
+        height:43px;
+    }
+
+    .modal-footer button{
+        border-radius:8px;
+        margin : 10px 10px 10px 20px;
+        height:43px;
+        width: 440px;
+    }
+
+    #IntoUp{
+        font-size:20px;
+        margin-left:20px;
+        margin-top:20px;
+    }
+
+    .btn btn-primary{
+
+        border-radius:8px;
+        margin : 10px 10px 10px 20px;
+        height:48px;
+        width: 440px;
+
+    }
+
+    .messages-list {
+        list-style-type: none;
+        padding: 0; /* Optional: Remove default padding */
+        margin: 0; /* Optional: Remove default margin */
+    }
+
+    .messages li{
+
+        width: 32%;
+        border-radius: 8px;
+        box-shadow: 0 0 8px 1px rgb(71, 71, 71);
+        text-decoration: none;
+        height: 41px;
+        margin-left: 40px;
+        text-align:center;
+        padding-top:10px;
+        background-color: rgb(0, 8, 52);
+        color:white;
+    }
+
+
+
+
+</style>
+
+</head>
+<body>
+    <header> 
+        <div class="mid">
+            <ul class="navbar">
+                <li><a href='#'>Register service</a></li>
+                <li><a href='#'onclick="openRegisterModal()">Sign up</a></li>
+                <li><a href='#' onclick="openLogin()">Sign in</a></li>
+            </ul>
+        </div>
+
+        <div id="message-container" class="messages">
+            {% if messages %}
+            <ul class="messages-list">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+    </header>
+
+{% comment %} signup modal {% endcomment %}
+    <div class="modal" id='registerModal' tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Sign Up</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                
+                <form action="{% url 'Register' %}" nonvalidate method="post" onsubmit="return formValidation()">
+                    {% csrf_token %}
+                    <div class="registeration">
+                    <input type="text" class="registerform" id="name" name="name" placeholder="Full Name" required>
+                </div>
+                <div class="registeration">
+                    <input type="text" name="userphone" id="userphone" class="registerform" placeholder="10-digit Phone No" required>
+                </div>
+                <div class="registeration">
+                    <input type="email" name="usermail" id="usermail" class="registerform" placeholder="Email" required>
+                </div>
+                <div class="registeration">
+                        <input type="password" name="password" id="password" class="registerform" placeholder="Password" required>
+                </div>
+                <div class="registeration">
+                    <input type="password" name="confirm_password" id="confirm_password" class="registerform" placeholder="Confirm Password" required>
+                </div>
+                <div class="conditions">
+                    <span> <input type="checkbox" id="agreeTerms" name="agreeTerms" required> 
+                        <label for="agreeTerms">I agree to TiffinWala's <a href = '#'class='terms'>Terms of Service</a>,<a href = '#' class='terms'> Privacy Policy</a> and <a href = '#' class='terms'>Content Policies</a></label></span>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Create account</button>
+                  </div>
+                </form>
+                
+            </div>
+            <p id='IntoUp'>Already have an account? <a class='terms' onclick="openRegisterModal()">Login</a></p>
+          </div>
+        </div>
+      </div>
+
+{% comment %} Login Modal {% endcomment %}
+      <div class="modal" id='loginModal' tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Login</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="{% url 'login' %}" nonvalidate method="post">
+                    {% csrf_token %}
+                <div class="registeration">
+                    <input type="email" name="usermail" id="usermail" class="registerform" placeholder="Email" required>
+                </div>
+                <div class="registeration">
+                        <input type="password" name="password" id="password" class="registerform" placeholder="Password" required>
+                </div>
+                  <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Login</button>
+                  </div>
+                </form>
+            </div>
+            <p id='IntoUp'>Dont have an account yet? <a href = ''class='terms'>Sign Up</a></p>
+          </div>
+        </div>
+      </div>
+
+    <div class="Tagline">
+        <h1>
+            TiffinWala
+        </h1>
+        <p> Catering your daily meal requirements with home cooked food ! </p>
+    </div>
+
+
+    <footer>
+        <div class="containfooter">
+            <div class="block" id="item1">
+                <h3> About Tiffinwala<h3>
+                <ul>
+                <li><a href="#">Who we are</a></li><br>
+                <li><a href="#">Contact Us</a></li><br>
+                </ul>
+            </div>
+            <div class="block" id="item2">
+                <h3>Learn More</h3>
+                <ul>
+                <li><a href="#">Privacy Policy</a></li><br>
+                <li><a href="#">Security</a></li><br>
+                <li><a href="#">Terms</a></li><br>
+                </ul>
+            </div>
+
+            <div class="block" id="item3">
+                <h3>Social Links</h3>
+            </div>
+            
+        </div>
+
+        <hr>
+        <p>By continuing past this page, you agree to our Terms of Service, Cookie Policy, Privacy Policy and Content Policies. All trademarks are properties of their respective owners. 2008-2024 © TiffinWala™ Ltd. All rights reserved</p>
+        
+
+
+
+    </footer>
+
+    <script>
+        
+        function openRegisterModal() {
+          var registerModal = new bootstrap.Modal(document.getElementById('registerModal'));
+          registerModal.show();
+        }
+
+        function openLogin() {
+          var loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+          loginModal.show();
+        }
+
+        function formValidation(){
+
+            var phoneNo = document.getElementById('userphone').value;
+            var email = document.getElementById('usermail').value;
+            var password = document.getElementById('password').value;
+            var confirm_password = document.getElementById('confirm_password').value;
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            var phoneRegex = /^[0-9]{10}$/
+
+
+            if(!phoneRegex.test(phoneNo))
+            {
+                alert("Please enter a 10 digit phone number");
+                return false;
+
+            }
+
+            else if(!emailRegex.test(email))
+            {
+                alert("Please enter a valid email");
+                return false;
+
+            }
+            else if(password != confirm_password)
+            {
+                alert("Passwords do not match")
+                return false;
+            }
+            return true;            
+        }
+      </script>
+    
+    
+</body>
+</html>

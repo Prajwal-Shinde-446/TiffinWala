@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Otp verification</title>
+    <style>
+      body{
+        margin: 0px;
+        padding: 0px;
+        background: url('{% static 'assets/images/pexels-keegan-evans-90893.jpg' %}');
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 788px;
+      }
+
+      .otp {
+        display: flex;
+        justify-content: center;
+        flex-flow: row wrap;
+        margin: -20px auto;
+        position: fixed; /* Set position to fixed */
+        top: 106px;
+        left: 71%;
+        transform: translateX(-50%);
+        width: 32%;
+        height: 70%;
+        padding: 2px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 0 10px 3px rgb(63, 63, 63);
+      }
+
+      .head {
+        font-size: 23px;
+        color: white;
+      }
+      .header {
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        flex-flow: column wrap;
+        background-color:skyblue;
+        width:100%;
+        border-radius:8px;
+      }
+
+    .box{
+        display:inline-block;
+    }
+
+    .input-box{
+        
+        width: 3vw;
+        height: 8vh;
+        margin: 19px;
+        margin-bottom: 30px;
+        font-size: 30px;
+        border-radius:4px;
+        border:none;
+        box-shadow: 0 0 4px 1px rgb(63, 63, 63);
+        text-align: center;
+
+        
+    }
+    .container{
+        display: flex;
+        justify-content: center;
+        flex-flow: row wrap;
+    }
+
+    .logo{
+        height:80px;
+        width:80px;
+        border-radius:8px;
+    }
+    .submitForm{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        flex-flow: row wrap;
+    }
+
+    .submitForm button{
+        height:9vh;
+        width: 27vw;
+        border-radius:6px;
+        margin-bottom: 46px;
+        margin-top: 26px;
+        border:none;
+        font-size:1.3rem;
+        color:white;
+        background-color: rgb(0, 138, 180);
+
+    }
+    .submitForm button:hover{
+        cursor:pointer;
+    }
+
+    .messages-list {
+        list-style-type: none;
+        padding: 0; /* Optional: Remove default padding */
+        margin: 0; /* Optional: Remove default margin */
+    }
+
+    .messages li{
+
+        width: 32%;
+        border-radius: 8px;
+        box-shadow: 0 0 8px 1px rgb(71, 71, 71);
+        text-decoration: none;
+        height: 41px;
+        margin-left: 40px;
+        text-align:center;
+        padding-top:10px;
+        background-color: rgb(0, 8, 52);
+        color:white;
+    }
+
+    </style>
+  </head>
+  <body>
+    <div id="message-container" class="messages">
+        {% if messages %}
+        <ul class="messages-list">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+    <div class="otp">
+      <div class="header">
+        <img src="{% static 'assets/images/cybersecurity-access-data-protection-line-icon-vector-42366049.jpg' %}" class="logo" >
+        <h1 class="head">Enter OTP Code</h1>
+      </div>
+      <div class="container">
+        <form id="otp-verification-form" method="post">
+            {% csrf_token %}
+      <div class="box" id="box1">
+        <input
+          type="text"
+          class="input-box"
+          maxlength="1"
+          id="digit1-input"
+          name="digit1"
+          oninput="handleInput(this, 'digit2-input', 'digit1-input')"
+        />
+      </div>
+      <div class="box" id="box2">
+        <input
+          type="text"
+          class="input-box"
+          maxlength="1"
+          id="digit2-input"
+          name="digit2"
+          oninput="handleInput(this, 'digit3-input', 'digit1-input')"
+        />
+      </div>
+      <div class="box" id="box3">
+        <input
+          type="text"
+          class="input-box"
+          maxlength="1"
+          id="digit3-input"
+          name="digit3"
+          oninput="handleInput(this, 'digit4-input' , 'digit2-input')"
+        />
+      </div>
+      <div class="box" id="box4">
+        <input
+          type="text"
+          class="input-box"
+          maxlength="1"
+          id="digit4-input"
+          name="digit4"
+          oninput="handleInput(this, '' , 'digit3-input')"
+        />
+      </div>
+
+      <div class="submitForm"> 
+        <button type="submit" class="btn btn-primary">Submit OTP</button>
+    </div>
+</form>
+</div>
+    </div>
+
+    <script>
+        function handleInput(currentInput , nextInputId , prevInputId)
+        {
+          const maxLength = parseInt(currentInput.getAttribute('maxlength'));
+          const currentLength = currentInput.value.length;
+  
+          if(event.inputType === 'deleteContentBackward' && currentLength === 0)
+          {
+            const prevInput = document.getElementById(prevInputId);
+  
+            if(prevInput)
+            {
+              prevInput.focus();
+            }
+          }
+          
+          else if(currentLength === maxLength)
+          {
+            const nextInput = document.getElementById(nextInputId);
+            if(nextInput)
+            {
+              nextInput.focus();
+            }
+          }
+          }
+        
+      </script>
+
+  </body>
+</html>
