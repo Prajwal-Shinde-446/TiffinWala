@@ -5,6 +5,7 @@ from django.dispatch import receiver
 from django.contrib.auth.models import Group
 from django.core import validators
 from django.contrib.auth.models import Permission
+from service.models import Service
 
 
 
